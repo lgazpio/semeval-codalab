@@ -1,2 +1,2 @@
-command: python $program/evaluation.py $input $output
-description: Example competition evaluation program.
+command: python $program/evaluation.py $input $output $program
+description: STS task 1 evaluation script
