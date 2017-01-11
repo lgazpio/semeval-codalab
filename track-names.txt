@@ -1,0 +1,32 @@
+Track 1 -  Arabic monolingual pairs
+=======
+STS.input.track1.ar-ar.txt
+STS.gs.track1.ar-ar.txt
+
+Track 2 -  Arabic-English cross-lingual pairs
+=======
+STS.input.track2.ar-en.txt
+STS.gs.track2.ar-en.txt
+
+Track 3 -  Spanish monolingual pairs - (track3a: captions, track3b: WMT)
+=======
+STS.input.track3a.sp-sp.txt
+STS.gs.track3a.sp-sp.txt
+
+STS.input.track3b.sp-sp.txt
+STS.gs.track3b.sp-sp.txt
+
+Track 4 - Spanish-English cross-lingual pairs
+=======
+STS.input.track4.sp-en.txt
+STS.gs.track4.sp-en.txt
+
+Track 5 - English monolingual pairs
+=======
+STS.input.track5.en-en.txt
+STS.gs.track5.en-en.txt
+
+Track 6 - Surprise language track
+=======
+STS.input.track6.su-su.txt
+STS.gs.track6.su-su.txt
