@@ -13,28 +13,39 @@ import re
 
 scores = []
 overall = True
+tracks = []
+trackNames = ["1", "2", "3a", "3b", "4", "5", "6"]
+trackExtension = ["1.ar-ar", "2.ar-en", "3a.sp-sp", "3b.sp-sp", "4.sp-en", "5.en-en", "6.su-su"]
 
-for i in xrange(1, 7):
-    preds = os.path.join(input_dir, 'res', 'track' + str(i) + '_preds.txt')
-    gold = os.path.join(input_dir, 'ref', 'track' + str(i) + '_gold.txt')
+for trackName in trackExtension:
+    sys_name = "STS.sys.track" + trackName + ".txt"
+    gs_name = "STS.gs.track"  + trackName + ".txt"
 
-    if os.path.exists(preds):
-        sys.stdout.write("{0} found\n".format(preds))
-        checkOutput = subprocess.check_output([os.path.join(program_dir, "check.pl"), preds])
+    system = os.path.join(input_dir, 'res', sys_name)
+    gold = os.path.join(input_dir, 'ref', gs_name)
 
+    if os.path.exists(system):
+        sys.stdout.write("{0} found\n".format(system))
+        checkOutput = subprocess.check_output([os.path.join(program_dir, "check.pl"), system])
+        sys.stdout.write(checkOutput)
+        sys.stdout.write("\n")
         if ("OK!" not in checkOutput):
             sys.exit("Input has incorrect format. Check input before submitting!!")
 
-        result = subprocess.check_output([os.path.join(program_dir, "correlation.pl"), gold, preds])
+        result = subprocess.check_output([os.path.join(program_dir, "correlation.pl"), gold, system])
         result = re.findall("\d+\.\d+", result)
+        sys.stdout.write(str(result))
+        sys.stdout.write("\n")
 
         if (len(result) != 1):
             sys.exit("Input has incorrect number of lines. Check input before submitting!!")
+        tracks.append(True)
         scores.append(result[0])
 
     else:
-        sys.stdout.write("{0} not found\n".format(preds))
+        sys.stdout.write("{0} not found\n".format(system))
         overall = False
+        tracks.append(False)
         scores.append(0)
 
 
@@ -49,12 +60,13 @@ for i in xrange(1, 7):
 
 with open(os.path.join(output_dir, 'scores.txt'), 'w') as out:
     if (overall):
-        out.write("Overall:{0}\n".format( (float(scores[0]) + float(scores[1]) + float(scores[2]) + float(scores[3]) + float(scores[4]) + float(scores[5])) / 6 ))
+        out.write("Primary:{0}\n".format( (float(scores[0]) + float(scores[1]) + (float(scores[2]) + float(scores[3])) / 2 + float(scores[4]) + float(scores[5]) + float(scores[6])) / 6 ))
     else:
-        out.write("Overall:{0}\n".format(0))
-    out.write("Track1:{0}\n".format(scores[0]))
-    out.write("Track2:{0}\n".format(scores[1]))
-    out.write("Track3:{0}\n".format(scores[2]))
-    out.write("Track4:{0}\n".format(scores[3]))
-    out.write("Track5:{0}\n".format(scores[4]))
-    out.write("Track6:{0}\n".format(scores[5]))
+        out.write("Primary:0.0\n")
+
+    for trackName in trackNames:
+        index = trackNames.index(trackName)
+        if (tracks[index]):
+            out.write("Track" + trackName + ":{0}\n".format(scores[index]))
+        else:
+            out.write("Track" + trackName + ":0.0\n")
