@@ -48,19 +48,19 @@ leaderboard:
             label: Track 2
             rank: 3
             numeric_format: 3
-        Track3a:
+        Track3:
             leaderboard: *RESULTS
-            label: Track 3a
+            label: Track 3
             rank: 4
             numeric_format: 3
-        Track3b:
+        Track4a:
             leaderboard: *RESULTS
-            label: Track 3b
+            label: Track 4a
             rank: 5
             numeric_format: 3
-        Track4:
+        Track4b:
             leaderboard: *RESULTS
-            label: Track 4
+            label: Track 4b
             rank: 6
             numeric_format: 3
         Track5:

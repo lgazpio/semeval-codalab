@@ -8,18 +8,18 @@ Track 2 -  Arabic-English cross-lingual pairs
 STS.input.track2.ar-en.txt
 STS.gs.track2.ar-en.txt
 
-Track 3 -  Spanish monolingual pairs - (track3a: captions, track3b: WMT)
+Track 3 -  Spanish monolingual pairs
 =======
-STS.input.track3a.sp-sp.txt
-STS.gs.track3a.sp-sp.txt
+STS.input.track3.sp-sp.txt
+STS.gs.track3.sp-sp.txt
 
-STS.input.track3b.sp-sp.txt
-STS.gs.track3b.sp-sp.txt
-
-Track 4 - Spanish-English cross-lingual pairs
+Track 4 - Spanish-English cross-lingual pairs - (track3a: captions, track3b: WMT)
 =======
-STS.input.track4.sp-en.txt
-STS.gs.track4.sp-en.txt
+STS.input.track4a.sp-en.txt
+STS.gs.track4a.sp-en.txt
+
+STS.input.track4b.sp-en.txt
+STS.gs.track4b.sp-en.txt
 
 Track 5 - English monolingual pairs
 =======

@@ -14,8 +14,8 @@ import re
 scores = []
 overall = True
 tracks = []
-trackNames = ["1", "2", "3a", "3b", "4", "5", "6"]
-trackExtension = ["1.ar-ar", "2.ar-en", "3a.sp-sp", "3b.sp-sp", "4.sp-en", "5.en-en", "6.su-su"]
+trackNames = ["1", "2", "3", "4a", "4b", "5", "6"]
+trackExtension = ["1.ar-ar", "2.ar-en", "3.sp-sp", "4a.sp-en", "4b.sp-en", "5.en-en", "6.su-su"]
 
 for trackName in trackExtension:
     sys_name = "STS.sys.track" + trackName + ".txt"
@@ -60,7 +60,7 @@ for trackName in trackExtension:
 
 with open(os.path.join(output_dir, 'scores.txt'), 'w') as out:
     if (overall):
-        out.write("Primary:{0}\n".format( (float(scores[0]) + float(scores[1]) + (float(scores[2]) + float(scores[3])) / 2 + float(scores[4]) + float(scores[5]) + float(scores[6])) / 6 ))
+        out.write("Primary:{0}\n".format( (float(scores[0]) + float(scores[1]) + float(scores[2]) + float(scores[3]) + float(scores[4]) + float(scores[5]) + float(scores[6])) / 7 ))
     else:
         out.write("Primary:0.0\n")
 
