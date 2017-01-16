@@ -15,7 +15,7 @@ scores = []
 overall = True
 tracks = []
 trackNames = ["1", "2", "3", "4a", "4b", "5", "6"]
-trackExtension = ["1.ar-ar", "2.ar-en", "3.sp-sp", "4a.sp-en", "4b.sp-en", "5.en-en", "6.su-su"]
+trackExtension = ["1.ar-ar", "2.ar-en", "3.es-es", "4a.es-en", "4b.es-en", "5.en-en", "6.tr-en"]
 
 for trackName in trackExtension:
     sys_name = "STS.sys.track" + trackName + ".txt"
